@@ -108,7 +108,12 @@ button:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
     grid-template-areas:"topo topo" "cena botoes" "cena painel"}
   .cenaBox{height:auto;min-height:0}
   .painel{overflow:auto;align-content:start}
-  #graf{height:120px}
+  #graf{height:clamp(80px,15vh,140px)}
+  /* telas baixas (TV com zoom, notebook): relogios menores para o grafico caber sem rolar */
+  .inst canvas{max-width:min(150px,calc((100vh - 330px) / 2.6))}
+  .inst{padding:3px 3px 2px}
+  .inst span{font-size:10px}
+  .visor{padding:4px 10px;font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){body,.placa,.inst{transition:none}}
 </style>
